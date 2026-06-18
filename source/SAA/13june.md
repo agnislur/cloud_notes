@@ -1,6 +1,7 @@
 
 # ExamPrepper 13/06/2026
 
+
 1. A company has two VPCs named Management and Production. The Management VPC uses VPNs through a customer gateway to connect to a single device in the data center. The Production VPC uses a virtual private gateway with two attached AWS Direct Connect connections. The Management and Production VPCs both use a single VPC peering connection to allow communication between the applications. 
 
 What should a solutions architect do to mitigate any single point of failure in this architecture? 
@@ -10,9 +11,9 @@ What should a solutions architect do to mitigate any single point of failure in 
     C. Add a second VPC peering connection between the Management VPC and the production VPC. 
     D. Add a second virtual private gateway and attach it to the Management VPC. 
 
-Answer is C, why?
+Answer is A, why?
 
-C is the correct option to mitigate the single point of failure. 
+A is the correct option to mitigate the single point of failure. 
 The management VPC currently has a single VPN connection through one customer gateway device. This is a single point of failure. 
 Adding a second set of VPN Connections from the Management VPC to a second customer gateway device provides redudancy and eliminates this single point of failure. 
 
@@ -49,3 +50,17 @@ No longer growing mean 1 time migrate, no need file gw
 least possible nw bandwith -->> snowball edge. 
 
 
+3. A company uses AWS to host its public ecommerce website. The website uses an AWS Global Accelerator accelerator for traffic from the internet. The Global Accelerator accelerator forwards the traffic to an Application Load Balancer (ALB) that is the entry point for an Auto Scalling Group 
+
+The company recently identified a DDoS attack on the website. The Company needs a solution to mitigate future attacks. 
+
+Which Solution will meet these requirement with the LEAST implement effort? 
+
+    A. Configure an AWS Lambda function to read the ALB metrics to block attacks by updating a VPC Netwok ACL 
+    B. Configure an Amazon Cloudfront distribution in front of the Gloval Accelerator accelerator 
+    C. Configure an AWS WAF web ACL for Global Accelerator accelerator to block traffic by using rate-based rules
+    D. Configure an AWS WAF web ACL on the ALB to block traffic by using rate-based rules
+
+Anwer is D, why? 
+WAF can be applied on ALB, API gateway or cloud front 
+AWS Global Accelerator itself doesn't support AWS WAF   
